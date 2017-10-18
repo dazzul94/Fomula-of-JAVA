@@ -1,0 +1,47 @@
+apply plugin: 'java'
+apply plugin: 'application'
+//이클립스 설정파일을 만들려면
+apply plugin: 'eclipse'
+
+eclipse {
+  jdt { 
+  //gradle에게 jdk 1.9가 아닌 9으로 이름 바꾸게 함
+    sourceCompatibility = 9
+    targetCompatibility = 9
+    javaRuntimeName = "JavaSE-9"
+
+    file {
+      whenMerged { jdt
+      }
+
+    //.settings/org.eclipse.jdt.core.prefs 파일에 들어갈 값 설정
+      withProperties { properties ->
+      properties["org.eclipse.jdt.core.compiler.codegen.targetPlatform"] = "9"
+      properties["org.eclipse.jdt.core.compiler.source"] = "9"
+      properties["org.eclipse.jdt.core.compiler.compliance"] = "9"
+      }
+    }
+  }
+}
+
+compileJava {
+    // 소스 파일이 UTF-8 규칙에 따라 저장되었음을 컴파일러에게 알린다.
+    options.encoding = 'UTF-8'
+}
+
+javadoc {
+    options.encoding = "UTF-8"
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:22.0'
+
+    testCompile 'junit:junit:4.12'
+}
+
+mainClassName = 'App'
+
