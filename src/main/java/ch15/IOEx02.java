@@ -2,6 +2,7 @@ package ch15;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class IOEx02 {
@@ -13,14 +14,19 @@ public class IOEx02 {
         ByteArrayInputStream input = new ByteArrayInputStream(inSrc);
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         
-        input.read(temp,0,temp.length);
+        try {
+            input.read(temp);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         output.write(temp,5,5);
         
         outSrc = output.toByteArray();
         
         System.out.println("Input Source :" + Arrays.toString(inSrc));
         System.out.println("temp :" + Arrays.toString(inSrc));
-        System.out.println("Input Source :" + Arrays.toString(inSrc));
+        System.out.println("output Source :" + Arrays.toString(outSrc));
         
     }
 
