@@ -3,7 +3,6 @@ apply plugin: 'application'
 apply plugin: 'eclipse'
 
 eclipse {
-<<<<<<< HEAD
   jdt {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -11,15 +10,6 @@ eclipse {
     
     /*
     file {
-=======
-  jdt { 
-  //gradle에게 jdk 1.9가 아닌 9으로 이름 바꾸게 함
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-    javaRuntimeName = "JavaSE-1.8"
-
-  /* file {
->>>>>>> 1fed7eacd2c9034bae353cce3cb204823d43ef58
       whenMerged { jdt
       }
 

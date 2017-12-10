@@ -4,6 +4,7 @@ class Data1 {
 }
 class Data2 {
     int value;
+    
     Data2(int x) {
         value = x;
     }

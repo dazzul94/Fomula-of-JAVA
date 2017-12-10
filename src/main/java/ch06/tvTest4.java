@@ -1,28 +1,27 @@
 package ch06;
 
-public class tvTest4 {
-    static class Tv {
-        String color;
-        boolean power;
-        int channel;
-        
-        void power() {
-            this.power = !(this.power);
-        }
-        void channelup() {
-            ++this.channel;
-        }
-        void channeldown() {
-            --this.channel;
-        }
-    }
+public class TvTest4 {
     public static void main(String[] args) {
-        Tv tv = new Tv();
-        Tv[] tvarr = new Tv[3];
-        for(int i = 0; i < tvarr.length; i++) {
-            tvarr[i] = new Tv();
+        Tv[] tvArr = new Tv[3];
+        
+        for (int i = 0; i < tvArr.length; i++) {
+            tvArr[i] = new Tv();
+            System.out.println(tvArr[i] + "의 객체 생성!");
+            tvArr[i].channel = i + 10;
         }
-        tvarr[0].channelup();
+        for (int i = 0; i < tvArr.length; i++) {
+            tvArr[i].channelUp();
+            System.out.println("채널이 1증가해서 " + tvArr[i].channel + "입니다");
+        }
+        
     }
-
+}
+class Tv {
+    String color;
+    boolean power;
+    int channel;
+    
+    void power() {power=!power;}
+    void channelUp() {++channel;}
+    void channelDown() {--channel;}
 }

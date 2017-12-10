@@ -11,8 +11,7 @@ public class MemberCall {
     static void staticMethod1() {
         System.out.println(cv);
 //        System.out.println(iv);
-        MemberCall c = new MemberCall();
-        System.out.println(c.iv);
+        System.out.println(new MemberCall().iv);
     }
     void instanceMethod1() {
         System.out.println(cv);
@@ -21,18 +20,10 @@ public class MemberCall {
     static void staticMethod2() {
         staticMethod1();
 //        instanceMethod1();
-        MemberCall c = new MemberCall();
-        c.instanceMethod1();
+        new MemberCall().instanceMethod1();
     }
     void instanceMethod2() {
         staticMethod1();
         instanceMethod1();
     }
-    
-    
-    public static void main(String[] args) {
-        
-
-    }
-
 }
